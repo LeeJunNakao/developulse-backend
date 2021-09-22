@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  app: &app
+    hostname: app
+    image: developulse
+    stdin_open: true
+    tty: true
+    build: .
+    command: bash
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/app
+    environment:
+      - PORT: 3000
+      - SUBMIT_URL: "https://imc-hiring-test.azurewebsites.net/Contact/Save"
