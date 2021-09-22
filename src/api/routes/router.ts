@@ -1,8 +1,6 @@
-// import express, { Express } from "express";
-// import GenericController from "../controllers/GenericController";
+import { Express } from 'express';
+import contactRouter from './contact';
 
 export const registerRoutes = (app: Express): void => {
-  /*
-  app.use('/route', routes);
-  */
+  app.use('/api', contactRouter);
 };
