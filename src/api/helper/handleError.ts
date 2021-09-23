@@ -8,7 +8,7 @@ export const serverError = (): HttpResponse => ({
 
 export const missingFieldsError = (fields: string[]): HttpResponse => ({
   status: 400,
-  body: new MissingFieldsError(fields),
+  body: { message: 'missing fields', details: new MissingFieldsError(fields) },
 });
 
 export const notAuthorizedError = (): HttpResponse => ({

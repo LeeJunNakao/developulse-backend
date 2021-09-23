@@ -24,11 +24,11 @@ export class ContactController extends GenericController {
   async post(httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
       const { body } = httpRequest;
-      const { name, address, address2, city, email }: Contact = body;
+      const { Name, Address, Address2, City, Province, Email }: Contact = body;
 
       this.verifyRequiredFields(body, ['name', 'address', 'address2', 'city', 'email']);
 
-      const isSubmited = await this.service.submitContact({ name, address, address2, city, email });
+      const isSubmited = await this.service.submitContact({ Name, Address, Address2, City, Province, Email });
 
       return isSubmited ? createResponse(controllerResp.post.success) : errorResponse(controllerResp.post.error);
     } catch (error) {

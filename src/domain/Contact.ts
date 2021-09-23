@@ -1,7 +1,8 @@
 export interface Contact {
-  name: string,
-  address: string,
-  address2: string,
-  city: string,
-  email: string,
+  Name: string,
+  Address: string,
+  Address2: string,
+  City: string,
+  Province: string,
+  Email: string,
 }

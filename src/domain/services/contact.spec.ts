@@ -1,6 +1,7 @@
 import { ContactService } from './contact';
 import { IHttpClient } from '../../http-client/protocols';
 import { Contact } from '../Contact';
+import { SubmitResponse } from '../protocols/services/contact';
 
 class HttpClient implements IHttpClient {
   private readonly response: boolean;
@@ -9,9 +10,8 @@ class HttpClient implements IHttpClient {
     this.response = response;
   }
 
-  async post(url: string, data: any): Promise<boolean> {
-    if (!this.response) throw new Error();
-    return this.response;
+  async post(url: string, data: any): Promise<SubmitResponse> {
+    return this.response ? { StatusCode: 200, Status: 'All Good!' } : { StatusCode: 400, Status: 'Validation Error!' };
   }
 }
 
@@ -20,11 +20,12 @@ const sutClient = (response: boolean = true): HttpClient => {
 };
 
 const contact: Contact = {
-  name: 'Mary Bucks',
-  address: 'Bank Street Uniondale',
-  address2: 'Old Saxon St. Egg Harbor Township',
-  city: 'New York',
-  email: 'mary@email.com',
+  Name: 'Mary Bucks',
+  Address: 'Bank Street Uniondale',
+  Address2: 'Old Saxon St. Egg Harbor Township',
+  Province: 'New York',
+  City: 'New York',
+  Email: 'mary@email.com',
 };
 
 describe('Contact Service Unit - submitContact', () => {

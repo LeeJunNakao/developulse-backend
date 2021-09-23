@@ -1,4 +1,4 @@
-import { IContactService } from '../protocols/services/contact';
+import { IContactService, SubmitResponse } from '../protocols/services/contact';
 import { IHttpClient } from '../../http-client/protocols';
 import { Contact } from '../Contact';
 
@@ -11,8 +11,8 @@ export class ContactService implements IContactService {
 
   async submitContact(contact: Contact): Promise<boolean> {
     try {
-      await this.client.post(process.env.SUBMIT_URL as string, contact);
-      return true;
+      const { StatusCode: statusCode }: SubmitResponse = await this.client.post(process.env.SUBMIT_URL as string, contact);
+      return statusCode === 200;
     } catch {
       return false;
     }
