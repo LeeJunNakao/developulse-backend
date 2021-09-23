@@ -26,7 +26,7 @@ export class ContactController extends GenericController {
       const { body } = httpRequest;
       const { Name, Address, Address2, City, Province, Email }: Contact = body;
 
-      this.verifyRequiredFields(body, ['name', 'address', 'address2', 'city', 'email']);
+      this.verifyRequiredFields(body, ['Name', 'Address', 'Address2', 'City', 'Province', 'Email']);
 
       const isSubmited = await this.service.submitContact({ Name, Address, Address2, City, Province, Email });
 

@@ -10,11 +10,12 @@ const serviceMocker = (response: boolean): IContactService => ({
 });
 
 const contactData = {
-  name: 'Mark Hayne',
-  address: 'Bank Street Uniondale',
-  address2: 'Old Saxon St. Egg Harbor Township',
-  city: 'New York',
-  email: 'mark.hayne@email.com',
+  Name: 'Mark Hayne',
+  Address: 'Bank Street Uniondale',
+  Address2: 'Old Saxon St. Egg Harbor Township',
+  City: 'New York',
+  Province: 'New York',
+  Email: 'mark.hayne@email.com',
 };
 
 describe('Contact Controller Unit - POST', () => {
