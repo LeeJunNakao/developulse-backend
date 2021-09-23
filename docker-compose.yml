@@ -13,5 +13,6 @@ services:
     volumes:
       - .:/usr/app
     environment:
-      - PORT: 3000
-      - SUBMIT_URL: "https://imc-hiring-test.azurewebsites.net/Contact/Save"
+      - PORT=3000
+      - SUBMIT_URL=https://imc-hiring-test.azurewebsites.net/Contact/Save
+    command: "yarn start"
