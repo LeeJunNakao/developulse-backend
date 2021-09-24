@@ -16,6 +16,8 @@ export const routeAdapter = (controller: Controller) => {
     } else if (req.method === 'DELETE') {
       const { status, body } = await controller.delete(httpRequest);
       res.status(status).send(body);
-    };
+    } else {
+      res.status(200).send();
+    }
   };
 };
